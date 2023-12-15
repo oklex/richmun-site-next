@@ -4,6 +4,7 @@ import { useTheme } from "next-themes"
 
 import { LightTheme } from "./LightTheme"
 import { DarkTheme } from "./DarkTheme"
+import { Theme } from "./types"
 
 export const LOCAL_STORAGE_THEME_KEY = "theme"
 export type Themes = "system" | "light" | "dark" | "mono" | undefined
@@ -31,7 +32,7 @@ export const ThemeProvider = ({
         setMounted(true)
     }, [])
 
-    const CustomTheme = ((): Record<string, unknown> => {
+    const CustomTheme = ((): Theme => {
         if (theme === "light" || theme === "undefined") return LightTheme
         else return DarkTheme
     })()

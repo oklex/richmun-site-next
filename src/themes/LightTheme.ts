@@ -1,7 +1,4 @@
-export const LightTheme = {
-    body: "white",
-    text: "black",
-}
+import { ColorPalette, Theme } from "./types"
 
 const PALETTE: ColorPalette = {
     brand_main: "#4b969b",
@@ -25,4 +22,8 @@ const PALETTE: ColorPalette = {
     text_high_contrast: "#000000",
     text_med_contrast: "#404040",
     text_low_contrast: "#a8a8a8",
+}
+
+export const LightTheme: Theme = {
+    ...PALETTE,
 }

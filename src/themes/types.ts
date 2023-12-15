@@ -3,7 +3,7 @@ type Gradient = {
     top: HexColor
     bottom: HexColor
 }
-type ColorPalette = {
+export type ColorPalette = {
     brand_main: HexColor
     brand_light: HexColor
     brand_dark: HexColor
@@ -20,3 +20,5 @@ type ColorPalette = {
     text_med_contrast: HexColor
     text_low_contrast: HexColor
 }
+
+export interface Theme extends ColorPalette {}
