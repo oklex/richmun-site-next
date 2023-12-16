@@ -1,8 +1,23 @@
 import { shade } from "polished"
+import { ColorPalette, Theme } from "./types"
 
-const generateThemeColors = (palette: ColorPalette) => {
+export const generateTheme = (palette: ColorPalette): Theme => {
     return {
-        palette: { ...palette },
+        palette: palette,
+        colors: generateThemeColors(palette),
+        breakpoints: {
+            xs: "320px",
+            sm: "576px",
+            md: "720px",
+            desktop: "992px",
+            desktopLg: "1200px",
+        },
+        radii: "15px",
+    }
+}
+
+export const generateThemeColors = (palette: ColorPalette) => {
+    return {
         globalBackgroundColor: palette.bg_high_contrast,
 
         baseHeaderColor: palette.text_med_contrast,

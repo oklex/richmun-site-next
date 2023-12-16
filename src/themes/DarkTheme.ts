@@ -1,3 +1,4 @@
+import { generateTheme } from "./generateTheme"
 import { ColorPalette, Theme } from "./types"
 
 const PALETTE: ColorPalette = {
@@ -24,6 +25,4 @@ const PALETTE: ColorPalette = {
     text_low_contrast: "#ededed",
 }
 
-export const DarkTheme: Theme = {
-    ...PALETTE,
-}
+export const DarkTheme: Theme = generateTheme(PALETTE)

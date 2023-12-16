@@ -1,3 +1,5 @@
+import { generateThemeColors } from "./generateTheme"
+
 type HexColor = `#${string}`
 type Gradient = {
     top: HexColor
@@ -21,4 +23,15 @@ export type ColorPalette = {
     text_low_contrast: HexColor
 }
 
-export interface Theme extends ColorPalette {}
+export interface Theme {
+    palette: ColorPalette
+    colors: ReturnType<typeof generateThemeColors>
+    radii: string
+    breakpoints: {
+        xs: string
+        sm: string
+        md: string
+        desktop: string
+        desktopLg: string
+    }
+}
