@@ -3,7 +3,7 @@ import { Div } from "./Generics"
 
 type CardProps = {
     onClick?: () => void
-    color?: "high-contrast" | "med-contrast" | "low-contrast" | "no-contrast"
+    color?: "med-contrast" | "low-contrast" | "no-contrast"
 }
 
 export const Card = styled(Div)<CardProps>`
@@ -14,8 +14,6 @@ export const Card = styled(Div)<CardProps>`
             return `background-color: ${theme.colors.cardNoContrast};`
         if (color === "med-contrast")
             return `background-color: ${theme.colors.cardMedContrast};`
-        if (color === "high-contrast")
-            return `background-color: ${theme.colors.cardHighContrast};`
 
         if (color === undefined || color === "low-contrast")
             return `background-color: ${theme.colors.cardLowContrastBackground};`

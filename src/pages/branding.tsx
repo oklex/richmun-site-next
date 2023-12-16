@@ -65,11 +65,8 @@ export const IndexPage = (): ReactElement => {
                 >
                     <Text>Clickable Card</Text>
                 </Card>
-                <Card color="high-contrast">
-                    <Text>High Constrast Card</Text>
-                </Card>
                 <Card color="med-contrast">
-                    <Text>High Constrast Card</Text>
+                    <Text>Med Constrast Card</Text>
                 </Card>
             </Div>
 

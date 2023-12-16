@@ -53,7 +53,6 @@ export const generateThemeColors = (palette: ColorPalette) => {
         cardLightOutline: palette.text_low_contrast,
         cardNoContrast: palette.bg_high_contrast,
         cardLowContrastBackground: palette.bg_low_contrast,
-        cardMedContrast: palette.text_med_contrast,
-        cardHighContrast: palette.text_med_contrast,
+        cardMedContrast: palette.text_low_contrast,
     }
 }
