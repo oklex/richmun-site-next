@@ -40,7 +40,7 @@ export const InternalLink = styled(Link)`
   ${linkStyles}
 `;
 
-export const UiLink = styled.a.attrs<LinkProps>(({ newTab, href }) => {
+export const ExternalLink = styled.a.attrs<LinkProps>(({ newTab, href }) => {
   if (newTab)
     return {
       href,

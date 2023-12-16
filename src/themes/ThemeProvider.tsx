@@ -1,9 +1,4 @@
-import {
-    ReactElement,
-    ReactNode,
-    useState,
-    useEffect,
-} from "react"
+import { ReactElement, ReactNode, useState, useEffect } from "react"
 import { ThemeProvider as StyledComponentsThemes } from "styled-components"
 import { useTheme } from "next-themes"
 
@@ -21,6 +16,7 @@ export const ThemeProvider = ({
 }): ReactElement => {
     const { theme, setTheme } = useTheme()
     const [savedTheme, setSavedTheme] = useState<Themes>()
+    const [doneLoadingTheme, setDoneLoadingTheme] = useState<boolean>(false)
 
     // useEffect only runs on the client, so now we can safely show the UI
     useEffect(() => {
@@ -38,13 +34,19 @@ export const ThemeProvider = ({
         )
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-    
+
     useEffect(() => {
         if (savedTheme) {
             setTimeout(() => setTheme(savedTheme), 0)
             localStorage.setItem(LOCAL_STORAGE_THEME_KEY, savedTheme)
         }
+        setDoneLoadingTheme(true)
     }, [savedTheme, setTheme])
+
+    useEffect(() => {
+        if (doneLoadingTheme) console.log("doneLoadingTheme", doneLoadingTheme)
+        // remove the site loading screen to hide the flash on content
+    }, [doneLoadingTheme])
 
     const CustomTheme = ((): Theme => {
         if (theme === "light" || theme === undefined) return LightTheme

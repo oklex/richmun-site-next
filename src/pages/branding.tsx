@@ -9,7 +9,7 @@ import {
     Header,
     Icon,
     Label,
-    Link,
+    InternalLink,
     Text,
     TextStyle,
     SelectInput,
@@ -33,9 +33,9 @@ export const IndexPage = (): ReactElement => {
                 ]}
                 onChange={() => {}}
             />
-            <Link href="/404">
-                click me to go to 404 page without animations
-            </Link>
+            <InternalLink href="/">
+                click me to go to main page without animations
+            </InternalLink>
             <Label>label</Label>
             <Header level={1} isTitle>
                 Header 1
