@@ -1,1 +1,1 @@
-export { DarkmodeToggle } from "./darkmodeToggle"
+export { Text } from "./Text"
