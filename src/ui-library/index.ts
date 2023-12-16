@@ -1,4 +1,5 @@
-export { Button } from "./Button"
+export { Button,   ButtonGroup,
+} from "./Button"
 export { Card } from "./Card"
 export { Disclosure } from "./Disclosure"
 export { Emoji } from "./Emoji"

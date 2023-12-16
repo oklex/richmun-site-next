@@ -45,7 +45,7 @@ export const SelectInput = ({
   useEffect(() => {
     if (value !== selected.value)
       setSelected(options.find((option) => option.value === value) ?? options[0]);
-  }, [value]);
+  }, [options, selected.value, value]);
 
   const onChange = (select: SelectOption): void => {
     console.log('onchange', select);

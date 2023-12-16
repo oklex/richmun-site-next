@@ -1,4 +1,3 @@
-import React, { ReactElement } from "react"
 import styled, { css } from "styled-components"
 import { Div } from "./Generics"
 

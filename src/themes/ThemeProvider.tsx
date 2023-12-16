@@ -30,7 +30,7 @@ export const ThemeProvider = ({
                 prefersDark ? "dark" : "light"
             )
         setMounted(true)
-    }, [])
+    }, [setTheme])
 
     const CustomTheme = ((): Theme => {
         if (theme === "light" || theme === "undefined") return LightTheme

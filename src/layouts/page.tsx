@@ -5,15 +5,15 @@ import styled from "styled-components"
 import { BaseContainer } from "./containers"
 
 type Props = {
-    location: Location
+    location?: Location
     children: ReactNode
 }
 export const PageLayout = ({ location, children }: Props): ReactElement => {
-    const { pathname } = location
+    const pathname = location ? location.pathname : undefined
 
     useEffect(() => {
         console.log("viewing page: ", pathname)
-    }, [])
+    }, [pathname])
 
     // add background image support
     return (

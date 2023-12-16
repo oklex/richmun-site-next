@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react"
-import { DarkmodeToggle } from "@ui-library"
+import { DarkmodeToggle } from "@components/DarkmodeToggle"
 
 const Home = (): ReactElement => {
     return (
