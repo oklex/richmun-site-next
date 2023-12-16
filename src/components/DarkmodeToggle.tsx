@@ -1,13 +1,11 @@
 import React, { ReactElement, useEffect, useState } from "react"
 import { useTheme } from "next-themes"
-import { useRouter } from "next/router"
 
 import { LOCAL_STORAGE_THEME_KEY, Themes } from "@src/themes/ThemeProvider"
 
 export const DarkmodeToggle = (): ReactElement => {
     const [mounted, setMounted] = useState(false)
     const { theme, setTheme } = useTheme()
-    const router = useRouter()
 
     // useEffect only runs on the client, so now we can safely show the UI
     useEffect(() => {
@@ -17,7 +15,6 @@ export const DarkmodeToggle = (): ReactElement => {
     const onChangeTheme = (theme: Exclude<Themes, undefined>): void => {
         localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme)
         setTheme(theme)
-        router.reload()
     }
 
     if (!mounted) {
