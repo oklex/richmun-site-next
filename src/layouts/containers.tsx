@@ -6,6 +6,11 @@ export const BaseContainer = styled.div`
     margin-right: auto;
     padding-left: 3rem;
     padding-right: 2.5rem;
+
+    @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
 `
 
 export const NarrowContainer = styled.div`

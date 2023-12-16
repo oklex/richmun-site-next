@@ -21,8 +21,9 @@ export const generateThemeColors = (palette: ColorPalette) => {
         globalBackgroundColor: palette.bg_high_contrast,
 
         baseHeaderColor: palette.text_med_contrast,
-        baseTextColor: palette.text_high_contrast,
+        baseTextColor: palette.text_med_contrast,
         brandTextColor: palette.brand_dark,
+        accentTextColor: palette.brand_accent,
 
         linkDefaultColor: palette.brand_accent,
         linkHoverColor: shade(0.2, palette.brand_accent),

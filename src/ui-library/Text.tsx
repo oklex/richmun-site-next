@@ -2,14 +2,14 @@ import styled, { css } from "styled-components"
 
 const sizes = {
     small: {
-        font: "1.5rem",
-        tabletFont: "1.5rem",
-        line: "2.1rem",
+        font: "1rem",
+        tabletFont: "0.9rem",
+        line: "1.3rem",
     },
     regular: {
-        font: "1.8rem",
-        tabletFont: "2.0rem",
-        line: "2.6rem",
+        font: "1.3rem",
+        tabletFont: "1.2rem",
+        line: "1.8rem",
     },
 }
 

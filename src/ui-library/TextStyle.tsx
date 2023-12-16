@@ -49,7 +49,7 @@ export const TextStyle = styled.span<TextStyleProps>`
   ${({ color, gradient, theme }) =>
         color === "blue" &&
         !gradient &&
-        `color: ${theme.colors.blueTextColor};`}
+        `color: ${theme.colors.accentTextColor};`}
   ${({ color, gradient, theme }) =>
         color === "med-contrast" &&
         !gradient &&
