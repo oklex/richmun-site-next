@@ -21,16 +21,19 @@ export const Button = styled.button<ButtonProps>`
     text-decoration: none;
     box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08); // move to palette eventually
 
-    ${({ variant }) =>
+    ${({ variant, theme }) =>
         variant === "primary" &&
         css`
             transition: 0.5s;
-            color: ${({ theme }) => theme.colors.buttonMainTextColor};
-            background: linear-gradient(90deg, ${({ theme }) =>
-                theme.colors.buttonMainGradientLeft} 0%, ${({ theme }) =>
-            theme.colors.buttonMainGradientMid} 50%, ${({ theme }) =>
-            theme.colors.buttonMainGradientRight} 100%)
+            color: ${theme.colors.buttonMainTextColor};
+            background: linear-gradient(
+                90deg,
+                ${theme.colors.buttonMainGradientLeft} 0%,
+                ${theme.colors.buttonMainGradientMid} 50%,
+                ${theme.colors.buttonMainGradientRight} 100%
+            );
             background-size: 200% auto;
+            border: none;
 
             &:hover {
                 background-position: right center;
