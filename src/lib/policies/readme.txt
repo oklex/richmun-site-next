@@ -1,0 +1,1 @@
+All Policies should be made transparent and accessible through the footer of our app.
