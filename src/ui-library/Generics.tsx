@@ -37,6 +37,7 @@ type GenericDivProps = {
         | "around"
         | "evenly"
     alignItems?: "stretch" | "normal" | "center" | "end" | string
+    alignSelf?: "stretch" | "normal" | "center" | "end" | string
 
     responsiveness?: ResponsivenessOptions
 }
@@ -53,6 +54,7 @@ export const Div = styled.div.attrs<GenericDivProps>(({ id, className }) => {
     width: ${({ width }) => width ?? "auto"};
 
     ${({ alignItems }) => alignItems && `align-items: ${alignItems};`}
+    ${({ alignSelf }) => alignSelf && `align-self: ${alignSelf};`}
     ${({ relative }) => relative && `position: relative;`}
   ${({ flexWrap }) => flexWrap && `flex-wrap: wrap;`}
 

@@ -60,8 +60,9 @@ type IconStyleWrapperProps = {
     className?: string
     onClick?: (event: MouseEvent | KeyboardEvent<HTMLElement>) => unknown
     role?: "button"
-    large?: true
+    size?: "sm" | "md" | "lg"
     spaceAfter?: true | string
+    spaceBefore?: true | string
     color?: "high-contrast" | "med-contrast" | "low-contrast" | "brand"
 }
 
@@ -71,13 +72,44 @@ const IconStyleWrapper = styled.span<IconStyleWrapperProps>`
     vertical-align: middle;
     ${({ role }) => role === "button" && "cursor: pointer;"}
 
-    line-height: ${({ large }) => (large ? "25px" : "2rem")};
-    width: ${({ large }) => (large ? "25px" : "2rem")};
+    ${({ size }) => {
+        if (size === "lg")
+            return css`
+                line-height: 2.5rem;
+                width: 2.5rem;
+            `
+        if (size === "sm")
+            return css`
+                line-height: 1%.5;
+                width: 1.5rem;
+            `
+        return css`
+            line-height: 2rem;
+            width: 2rem;
+        `
+    }}
 
-    ${({ spaceAfter }) =>
-        spaceAfter === true
-            ? "margin-right: 1rem;"
-            : `margin-right: ${spaceAfter};`}
+    ${({ spaceBefore }) => {
+        if (spaceBefore === true)
+            return css`
+                margin-left: 1rem;
+            `
+        if (spaceBefore !== undefined)
+            return css`
+                margin-left: ${spaceBefore};
+            `
+    }}
+    ${({ spaceAfter }) => {
+        if (spaceAfter === true)
+            return css`
+                margin-right: 1rem;
+            `
+        if (spaceAfter !== undefined)
+            return css`
+                margin-right: ${spaceAfter};
+            `
+    }}
+
 
     color: ${({ color }) => {
         if (color === "high-contrast")
@@ -115,7 +147,8 @@ const InnerIcon: FC<IconProps> = ({
     title,
     role,
     spaceAfter,
-    large,
+    spaceBefore,
+    size,
     color,
 }: IconProps) => {
     const IconElement = ICONS[icon] as StyledIcon
@@ -123,11 +156,11 @@ const InnerIcon: FC<IconProps> = ({
     return (
         <IconStyleWrapper
             className={className}
-            large={large}
+            size={size}
             onClick={onClick}
-            onKeyPress={onClick}
             role={role}
             spaceAfter={spaceAfter}
+            spaceBefore={spaceBefore}
             color={color}
         >
             <IconElement title={title} />
