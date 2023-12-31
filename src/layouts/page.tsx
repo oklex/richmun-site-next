@@ -1,43 +1,45 @@
-import React, { ReactNode, ReactElement, useEffect } from "react"
-import styled from "styled-components"
+import React, { ReactNode, ReactElement, useEffect } from 'react';
+import styled from 'styled-components';
 
 // import { Navigation, Footer } from '@components';
-import { BaseContainer } from "./containers"
+import { BaseContainer } from './containers';
+import { Navigation } from '@src/components/Navigation';
 
 type Props = {
-    location?: Location
-    children: ReactNode
-}
+	location?: Location;
+	children: ReactNode;
+};
 export const PageLayout = ({ location, children }: Props): ReactElement => {
-    const pathname = location ? location.pathname : undefined
+	const pathname = location ? location.pathname : undefined;
 
-    useEffect(() => {
-        console.log("viewing page: ", pathname)
-    }, [pathname])
+	useEffect(() => {
+		console.log('viewing page: ', pathname);
+	}, [pathname]);
 
-    // add background image support
-    return (
-        <AppBackground>
-            <PageBackground id={pathname}>
-                {/* <Navigation pathname={pathname} /> */}
-                <PageContainer>{children}</PageContainer>
-                {/* <Footer /> */}
-            </PageBackground>
-        </AppBackground>
-    )
-}
+	// add background image support
+	return (
+		<AppBackground>
+			<PageBackground id={pathname}>
+				{/* <Navigation pathname={pathname} /> */}
+				<Navigation />
+				<PageContainer>{children}</PageContainer>
+				{/* <Footer /> */}
+			</PageBackground>
+		</AppBackground>
+	);
+};
 
 const AppBackground = styled.div`
-    max-width: 100vw;
-    min-height: 100vh;
-    background-color: ${({ theme }) => theme.colors.cardLowContrastBackground};
-`
+	max-width: 100vw;
+	min-height: 100vh;
+	background-color: ${({ theme }) => theme.colors.cardLowContrastBackground};
+`;
 
 const PageBackground = styled.div`
-    position: relative;
-    background-color: ${({ theme }) => theme.colors.globalBackgroundColor};
-`
+	position: relative;
+	background-color: ${({ theme }) => theme.colors.globalBackgroundColor};
+`;
 
 const PageContainer = styled(BaseContainer)`
-    margin-top: 1rem;
-`
+	margin-top: 1rem;
+`;
