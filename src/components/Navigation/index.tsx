@@ -3,12 +3,17 @@
 import { ReactElement } from 'react';
 import { FlyoutNavigation } from './FlyoutMenu';
 import { Div } from '@src/ui-library';
+import { NavConfig } from '@src/lib/navigationMeta/types';
 
-export const Navigation = (): ReactElement => {
+type NavigationProps = {
+	NavConfig: NavConfig;
+};
+
+export const Navigation = ({ NavConfig }: NavigationProps): ReactElement => {
 	return (
 		<Div flex justifyContent="between">
 			<span>Logo</span>
-			<FlyoutNavigation />
+			<FlyoutNavigation links={NavConfig.main} />
 			<span>Apply</span>
 		</Div>
 	);

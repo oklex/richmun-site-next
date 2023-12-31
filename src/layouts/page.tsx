@@ -4,6 +4,7 @@ import styled from 'styled-components';
 // import { Navigation, Footer } from '@components';
 import { BaseContainer } from './containers';
 import { Navigation } from '@src/components/Navigation';
+import { I9_NAV_CONFIG } from '@src/lib/navigationMeta/i9';
 
 type Props = {
 	location?: Location;
@@ -20,8 +21,7 @@ export const PageLayout = ({ location, children }: Props): ReactElement => {
 	return (
 		<AppBackground>
 			<PageBackground id={pathname}>
-				{/* <Navigation pathname={pathname} /> */}
-				<Navigation />
+				<Navigation NavConfig={I9_NAV_CONFIG} />
 				<PageContainer>{children}</PageContainer>
 				{/* <Footer /> */}
 			</PageBackground>
