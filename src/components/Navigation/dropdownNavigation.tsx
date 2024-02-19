@@ -1,8 +1,8 @@
 import React, { ReactElement, useState, useEffect } from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
-import {  Div, Icon } from '@ui-library';
+import { Div, Icon } from '@ui-library';
 import { I9_NAV_CONFIG } from '@lib/navigationMeta/i9'; // make into a prop later
 import {
 	DropdownNav,
@@ -19,11 +19,7 @@ export const DropdownNavigation = ({
 	showDropdownNav,
 	pathname,
 }: DropdownNavType): ReactElement => {
-	const {
-		home,
-		main: MainLinks,
-		secondary: SecondaryLinks,
-	} = I9_NAV_CONFIG;
+	const { home, main: MainLinks, secondary: SecondaryLinks } = I9_NAV_CONFIG;
 
 	return (
 		<>
@@ -32,7 +28,7 @@ export const DropdownNavigation = ({
 					{MainLinks.map((navItem, index) => (
 						<div key={`${navItem.route}-d${index}`}>
 							<NavItem mobile selected={pathname.includes(navItem.route)}>
-								<Link to={navItem.route}>{navItem.label}</Link>
+								<Link href={navItem.route}>{navItem.label}</Link>
 							</NavItem>
 							{/* {navItem.pages && navItem.pages.length > 0 && (
                 <NavSubItemContainer key={`/${navItem.route}-sub`} mobile>
@@ -54,7 +50,7 @@ export const DropdownNavigation = ({
 									selected={pathname.includes(navItem.route)}
 									secondary
 								>
-									<Link to={navItem.route}>{navItem.label}</Link>
+									<Link href={navItem.route}>{navItem.label}</Link>
 								</NavItem>
 							);
 						})}

@@ -1,6 +1,6 @@
 import React, { ReactElement, useState, useEffect } from 'react';
 import styled, { css } from 'styled-components';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Popover } from '@headlessui/react';
 
 import { I9_NAV_CONFIG } from '@lib/navigationMeta/i9'; // make into a prop later
@@ -17,12 +17,13 @@ import {
 import { DropdownNavigation } from './dropdownNavigation';
 import { HamburgerButton } from '../HamburgerButton';
 import { LocalImage } from '../Image';
-import { NavItemType } from '@src/lib/navigationMeta/types';
+import { NavConfig, NavItemType } from '@src/lib/navigationMeta/types';
 
 const LOGO_PATH = '/images/branding/fullLogo.png';
 
 type NavigationProps = {
 	pathname: string;
+	NavConfig?: NavConfig;
 };
 export const DesktopNavigation = ({
 	pathname,
@@ -53,7 +54,7 @@ export const DesktopNavigation = ({
 						/>
 					</Div>
 					<Div flex justifyContent="center" flexDirection="col">
-						<Link to={home.route}>
+						<Link href={home.route}>
 							<LocalImage
 								src={LOGO_PATH}
 								alt="richmond model un"
@@ -111,7 +112,7 @@ const NavItemRender = ({
 	if (navItem.isCta) {
 		return (
 			<Div flex flexDirection="col" margin="-2px 0px 0px">
-				<Link key={`${navItem.label}-${navItem.route}`} to={navItem.route}>
+				<Link key={`${navItem.label}-${navItem.route}`} href={navItem.route}>
 					<Button variant="primary" size="regular">
 						{navItem.label.toLocaleUpperCase()}{' '}
 					</Button>
@@ -125,7 +126,7 @@ const NavItemRender = ({
 				<Popover onMouseLeave={() => setShowPopover(false)}>
 					<div className="inline" onMouseEnter={() => setShowPopover(true)}>
 						<NavItem selected={pathname.includes(navItem.route)}>
-							<Link to={navItem.route}>
+							<Link href={navItem.route}>
 								{navItem.label}
 								<Icon
 									icon={showPopover ? 'chevron-down' : 'chevron-up'}
@@ -144,7 +145,7 @@ const NavItemRender = ({
 										<NavSubItem
 											key={`${navItem.label}-${navItem.route}-${route}`}
 										>
-											<Link to={route}>
+											<Link href={route}>
 												<TextStyle
 													forceSingleLine
 													color={pathname.includes(route) ? 'brand' : undefined}
@@ -163,7 +164,7 @@ const NavItemRender = ({
 		);
 
 	return (
-		<Link to={navItem.route}>
+		<Link href={navItem.route}>
 			<NavItem selected={pathname.includes(navItem.route)}>
 				{navItem.label}
 			</NavItem>
