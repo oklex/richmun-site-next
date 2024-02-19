@@ -7,6 +7,7 @@ type ImageProps = {
 	width: number;
 	height: number;
 	quality?: number;
+	id?: string;
 };
 
 export const LocalImage = ({
