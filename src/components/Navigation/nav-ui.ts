@@ -94,8 +94,8 @@ export const NavItem = styled('h4')<NavItemProps>`
 			return css`
 				background: ${`-webkit-linear-gradient(
                      -90deg,
-                     ${theme.colors.brandGradientTop} 0%,
-                                       ${theme.colors.brandGradientBottom} 100%
+                     ${theme.palette.brand_gradient.top} 0%,
+                                       ${theme.palette.brand_gradient.bottom} 100%
                  )`};
 				-webkit-background-clip: text;
 				-webkit-text-fill-color: transparent;
@@ -103,15 +103,15 @@ export const NavItem = styled('h4')<NavItemProps>`
 		else if (secondary)
 			return css`
 				${css`
-					color: ${theme.colors.medContrastTextColor};
+					color: ${theme.palette.text_med_contrast};
 				`}
 			`;
 		return css`
 			${`
             background: -webkit-linear-gradient(
                       -90deg,
-                      ${theme.colors.brandMonoTop},
-                      ${theme.colors.brandMonoBottom}
+                      ${theme.palette.mono_gradient.top},
+                      ${theme.palette.mono_gradient.bottom}
                   );
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;`}
