@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 // import { Navigation, Footer } from '@components';
 import { BaseContainer } from './containers';
-import { Navigation } from '@src/components/Navigation';
+import { Navigation } from '@src/components/FlyoutMenu';
 import { I9_NAV_CONFIG } from '@src/lib/navigationMeta/i9';
 
 type Props = {
