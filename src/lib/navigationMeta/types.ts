@@ -1,16 +1,17 @@
-import type { IconKey } from '@src/ui-library/Icon';
+type route = `/${string}`
 
 export type PageType = {
-	icon?: IconKey;
 	label: string;
-	subtitle?: string;
-	route: string;
+	route: route;
+	isCta?: boolean
 };
 export interface NavItemType extends PageType {
-	pages?: PageType[];
+	childPages?: PageType[];
 }
+
 export type NavConfig = {
+	root: route // i.e. /c9/
 	home: Omit<PageType, 'icon'>;
 	main: NavItemType[];
-	cta: NavItemType;
+	secondary: NavItemType[];
 };
